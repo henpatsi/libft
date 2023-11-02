@@ -6,7 +6,7 @@
 /*   By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:09:52 by hpatsi            #+#    #+#             */
-/*   Updated: 2023/10/31 08:26:36 by hpatsi           ###   ########.fr       */
+/*   Updated: 2023/11/01 08:37:43 by hpatsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
+	size_t	total;
 
-	ptr = malloc(count * size);
+	if (count == 0 || size == 0)
+		return (malloc(0));
+	total = count * size;
+	if (total / count != size)
+		return (0);
+	ptr = malloc(total);
 	if (ptr == 0)
 		return (0);
-	ft_bzero(ptr, size * count);
+	ft_bzero(ptr, total);
 	return (ptr);
 }
