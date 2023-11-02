@@ -6,7 +6,7 @@
 #    By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 08:42:34 by hpatsi            #+#    #+#              #
-#    Updated: 2023/10/31 14:55:21 by hpatsi           ###   ########.fr        #
+#    Updated: 2023/11/01 13:51:35 by hpatsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,12 @@ BONUS_SOURCES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
-INCLUDES = libft.h
-
 CFLAGS += -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(INCLUDES)
-	ar -rc 	$(NAME) $(OBJECTS) $(INCLUDES)
+$(NAME): $(OBJECTS)
+	ar -rc $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
 
