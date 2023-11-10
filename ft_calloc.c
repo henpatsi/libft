@@ -6,7 +6,7 @@
 /*   By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:09:52 by hpatsi            #+#    #+#             */
-/*   Updated: 2023/11/02 12:56:40 by hpatsi           ###   ########.fr       */
+/*   Updated: 2023/11/10 13:28:36 by hpatsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	total;
 
 	if (count == 0 || size == 0)
-		return (ft_calloc(1, 1));
+		return (malloc(0));
 	total = count * size;
 	if (total / count != size)
 		return (0);
