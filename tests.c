@@ -7,6 +7,8 @@ int test_puthex(int n)
 	fflush(stdout);
 	ft_puthex_fd(n, 0, 1);
 	ft_putstr_fd("\n\n", 1);
+
+	return (0);
 }
 
 int main(void)

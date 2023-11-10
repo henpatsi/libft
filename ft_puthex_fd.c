@@ -17,7 +17,7 @@ void	ft_puthex_fd(unsigned int n, int use_capitals, int fd)
 	int	dif;
 
 	if (n >= 16)
-		ft_putnbr_fd(n / 16, fd);
+		ft_puthex_fd(n / 16, use_capitals, fd);
 	if (use_capitals)
 		dif = ('A' - '9' - 1);
 	else

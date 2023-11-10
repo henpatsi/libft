@@ -44,3 +44,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+tests: $(NAME)
+	cc $(CFLAGS) tests.c $(NAME) -I $(INCLUDES_DIR) -o test.out
+	./test.out
+	rm -f test.out
