@@ -6,7 +6,7 @@
 /*   By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:45:48 by hpatsi            #+#    #+#             */
-/*   Updated: 2023/11/10 14:24:45 by hpatsi           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:27:10 by hpatsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ static char const	*get_next_split(char const *s, char c)
 	return (s);
 }
 
-static void	free_all(char	**strs)
+static void	free_all(char **strs, size_t *iptr)
 {
-	while (*strs != 0)
+	size_t	i;
+
+	i = 0;
+	while (i < *iptr)
 	{
-		free(*strs);
-		strs++;
+		free(strs[i]);
+		i++;
 	}
 	free(strs);
 }
@@ -82,7 +85,7 @@ char	**ft_split(char const *s, char c)
 		tab = get_next_split(s, c);
 		if (add_to_strs(strs, s, tab - s, &i) == 0)
 		{
-			free_all(strs);
+			free_all(strs, &i);
 			return (0);
 		}
 		if (*tab != 0)

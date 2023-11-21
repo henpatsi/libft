@@ -22,7 +22,8 @@ SOURCES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_isspace.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 	  ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
 	  ft_lstiter.c ft_lstmap.c ft_putunbr_fd.c ft_puthex_fd.c ft_itoh.c \
-	  ft_putaddr_fd.c ft_ltoh.c
+	  ft_putaddr_fd.c ft_ltoh.c ft_printf.c ft_printf_strutils.c \
+	  ft_printf_nbrutils.c ft_printf_hexutils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -36,6 +37,9 @@ $(NAME): $(OBJECTS)
 	ar -rc $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
+
+bonus:
+	echo "bonus rule for tests"
 
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)

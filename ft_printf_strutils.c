@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_printf_strutils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 09:44:33 by hpatsi            #+#    #+#             */
-/*   Updated: 2023/11/21 15:13:59 by hpatsi           ###   ########.fr       */
+/*   Created: 2023/11/10 09:25:27 by hpatsi            #+#    #+#             */
+/*   Updated: 2023/11/21 14:09:18 by hpatsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_i_putchar(char c)
 {
-	t_list	*newlist;
-	t_list	*node;
-	void	*new_content;
+	return (write(1, &c, 1));
+}
 
-	if (lst == 0)
-		return (0);
-	newlist = 0;
-	while (lst != 0)
+int	ft_i_putstr(char *s)
+{
+	int	written;
+
+	written = 0;
+	while (*s != 0)
 	{
-		new_content = f(lst->content);
-		node = ft_lstnew(new_content);
-		if (node == 0)
-		{
-			free(new_content);
-			ft_lstclear(&newlist, del);
-			return (0);
-		}
-		ft_lstadd_back(&newlist, node);
-		lst = lst->next;
+		written = ft_add_check_error(written, ft_i_putchar(*s));
+		if (written == -1)
+			return (-1);
+		s++;
 	}
-	return (newlist);
+	return (written);
 }
