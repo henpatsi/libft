@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hpatsi <hpatsi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:40:01 by hpatsi            #+#    #+#             */
-/*   Updated: 2023/10/26 08:41:40 by hpatsi           ###   ########.fr       */
+/*   Created: 2023/10/25 17:32:05 by hpatsi            #+#    #+#             */
+/*   Updated: 2023/12/01 10:08:28 by hpatsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	int	num;
+	int	neg;
+
+	while (ft_isspace(*str))
+		str++;
+	neg = 1;
+	if (*str == '-')
+	{
+		neg = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	num = 0;
+	while (*str != 0 && (*str >= '0' && *str <= '9'))
+	{
+		num *= 10;
+		num += (*str - '0');
+		str++;
+	}
+	return (num * neg);
 }
