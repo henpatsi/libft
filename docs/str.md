@@ -1,0 +1,18 @@
+### Str
+| Name        | Prototype                                                               | Description |
+| ----------- | ----------------------------------------------------------------------- | ----------- |
+| ft_strchr   | char	*ft_strchr(const char *s, int c)                                  | Searches for the first occurence of `c` in string `s`. Returns a pointer to the first occurence if found, else returns 0 |
+| ft_strrchr  | char	*ft_strrchr(const char *s, int c)                                 | Searches for the last occurence of `c` in string `s`. Returns a pointer to the last occurence if found, else returns 0 |
+| ft_strcmp   | int	ft_strcmp(const char *s1, const char *s2)                           | Compares strings `s1` and `s2`. If a difference is encountered, returns the difference in values, else returns 0 |
+| ft_strncmp  | int	ft_strncmp(const char *s1, const char *s2, size_t n)                | Compares up to `n` chars of strings `s1` and `s2`. If a difference is encountered, returns the difference in values, else returns 0 |
+| ft_strnstr  | char	*ft_strnstr(const char *haystack, const char *needle, size_t len) | Searches up to `n` chars of string `haystack` for string `needle`. If found, returns a pointer to the start of `needle` in `haystack`, else returns 0. If `needle` is an empty string, returns `haystack` |
+| ft_strlen   | size_t	ft_strlen(const char *s)                                        | Returns the length of string `s`, excluding the null terminator |
+| ft_strlcpy  | size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)          | Copies up to `dstsize - 1` chars from string `src` to `dst`. Always null terminates unless `dstsize` is 0. The user should ensure `dstsize` never exceeds the size allocated for `dst`. Returns the length of the string that it attempted to copy |
+| ft_strlcat  | size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)          | Concatenates chars from string `src` to the end of the string at `dst`, up to a total string length of `dstsize - 1`. Always null terminates unless `dstsize` is 0. The user should ensure `dstsize` never exceeds the size allocated for `dst`. Returns the length of the string that it attempted to create |
+| ft_strdup   | char	*ft_strdup(const char *s1)                                        | Returns a new string that is a duplicate of string `s1` |
+| ft_substr   | char	*ft_substr(char const *s, unsigned int start, size_t len)         | Returns a new string that is a substring of string `s1`, starting from index `start` with a maximum length of `len` |
+| ft_strjoin  | char	*ft_strjoin(char const *s1, char const *s2)                       | Returns a new string with string `s2` concatenated to `s1` |
+| ft_strtrim  | char	*ft_strtrim(char const *s1, char const *set)                      | Returns a new string with all characters in `set` removed from the start and end of `s1` |
+| ft_split    | char	**ft_split(char const *s, char c)                                 | Splits string `s` at each occurence of `c` and returns a list of the resulting strings. Does not include empty strings and is always null terminated |
+| ft_striteri | void	ft_striteri(char *s, void (*f)(unsigned int, char *))              | Performs function `f` for each char of string `s`, with the index of the char given as a parameter |
+| ft_strmapi  | char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))         | Returns a new string that is a duplicate of string `s1`, where each of the chars has been modified using function `f`, with the index of the char given as a parameter |
