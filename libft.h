@@ -226,6 +226,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	**ft_split(char const *s, char c);
 int		ft_stristype(char *s, int (*f)(int));
 void	ft_freestrs(char **strs);
+int		ft_countchar(char *str, int c);
 
 //--- PUT FUNCTIONS ---//
 
