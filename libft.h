@@ -41,7 +41,8 @@ int		ft_isdigit(int c);
  * Checks if the given int is the decimal ascii number of a letter.
  * 
  * @param[in] c The int to be checked
- * @returns Returns 1 if c corresponds to a letter ('a' - 'z' or 'A' - 'Z'), else returns 0.
+ * @returns Returns 1 if c corresponds to a letter 
+ * ('a' - 'z' or 'A' - 'Z'), else returns 0.
  */
 int		ft_isalpha(int c);
 
@@ -49,7 +50,8 @@ int		ft_isalpha(int c);
  * Checks if the given int is the decimal ascii number of a digit or a letter.
  * 
  * @param[in] c The int to be checked
- * @returns Returns 1 if c corresponds to a digit ('0' - '9') or a letter ('a' - 'z' or 'A' - 'Z'), else returns 0.
+ * @returns Returns 1 if c corresponds to a digit ('0' - '9') or a letter
+ * ('a' - 'z' or 'A' - 'Z'), else returns 0.
  */
 int		ft_isalnum(int c);
 
@@ -57,7 +59,8 @@ int		ft_isalnum(int c);
  * Checks if the given int is the decimal ascii number of a space.
  * 
  * @param[in] c The int to be checked
- * @returns Returns 1 if c corresponds to a space (' ', '\t', '\n', '\v', '\f', '\r'), else returns 0.
+ * @returns Returns 1 if c corresponds to a space
+ * (' ', '\t', '\n', '\v', '\f', '\r'), else returns 0.
  */
 int		ft_isspace(int c);
 
@@ -73,7 +76,8 @@ int		ft_isascii(int c);
  * Checks if the given int is in the printable ascii range.
  * 
  * @param[in] c The int to be checked
- * @returns Returns 1 if c is a printable decimal ascii number (32 - 126), else returns 0.
+ * @returns Returns 1 if c is a printable decimal ascii number
+ * (32 - 126), else returns 0.
  */
 int		ft_isprint(int c);
 
@@ -85,7 +89,8 @@ int		ft_isprint(int c);
  * @param[in] s The memory area to be searched
  * @param[in] c The value of the byte to search for
  * @param[in] n The number of bytes to search from the start
- * @returns Returns a pointer to the first occurence of c if found, else returns 0.
+ * @returns Returns a pointer to the first occurence of c if
+ * found, else returns 0.
  */
 void	*ft_memchr(const void *s, int c, size_t n);
 
@@ -95,7 +100,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * @param[in] s1 The first areas
  * @param[in] s2 The second areas
  * @param[in] n The number of bytes to compare
- * @returns On the first occurence of a differing value, returns their difference. Returns 0 if s1 and s2 are identical.
+ * @returns On the first occurence of a differing value, returns their
+ * difference. Returns 0 if s1 and s2 are identical.
  */
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
@@ -114,7 +120,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 /**
  * Copies the specified amount of bytes from the source to the destination.
  * 
- * Always copies the original content of the source to the destination, even if they overlap.
+ * Always copies the original content of the source to the destination, even
+ * if they overlap.
  * 
  * @param[in] dst The destination to copy to
  * @param[in] src The source to copy from
@@ -173,7 +180,8 @@ int		ft_tolower(int c);
 /**
  * Converts the initial portion of a string into the corresponding integer.
  * Ignores spaces before digits and accepts one sign.
- * Behaviour is undefined if the initial portion of the given string does not correspond to an integer.
+ * Behaviour is undefined if the initial portion of the given string does
+ * not correspond to an integer.
  * 
  * @param[in] str The string to be converted
  * @returns Returns the converted integer.
@@ -183,7 +191,8 @@ int		ft_atoi(const char *str);
 /**
  * Converts the initial portion of a string into the corresponding long integer.
  * Ignores spaces before digits and accepts one sign.
- * Behaviour is undefined if the initial portion of the given string does not correspond to a long integer.
+ * Behaviour is undefined if the initial portion of the given string does not
+ * correspond to a long integer.
  * 
  * @param[in] str The string to be converted
  * @returns Returns the converted long integer.
