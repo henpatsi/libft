@@ -12,12 +12,6 @@
 
 #include "libft.h"
 
-char	*return_error(int *error, t_gnl_error errno)
-{
-	*error = errno;
-	return (0);
-}
-
 ssize_t	ft_i_strchr(const char *s, int c)
 {
 	char	cc;

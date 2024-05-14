@@ -285,6 +285,5 @@ char	*get_next_line(int fd, int *error);
 ssize_t	ft_i_strchr(const char *s, int c);
 char	*ft_strldup(const char *s1, size_t len);
 char	*ft_stradd(char *s1, char *s2);
-char	*return_error(int *error, t_gnl_error errno);
 
 #endif

@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+static char	*return_error(int *error, t_gnl_error errno)
+{
+	*error = errno;
+	return (0);
+}
+
 static void	trim_last_line(char *last_read)
 {
 	ssize_t	nl_i;
