@@ -32,7 +32,7 @@ static void	trim_last_line(char *last_read)
 	last_read[i] = 0;
 }
 
-static char	*handle_return(char *current_buf, char *last_read)
+static char	*handle_return(char *current_buf, char *last_read, int *error)
 {
 	char	*temp;
 	ssize_t	nl_i;
@@ -50,21 +50,22 @@ static char	*handle_return(char *current_buf, char *last_read)
 	free(current_buf);
 	trim_last_line(last_read);
 	if (temp == 0)
-		return (0);
+		return (return_error(error, GNL_MALLOC_ERROR));
 	return (temp);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int *error)
 {
 	static char	last_read[1024][BUFFER_SIZE + 1];
 	ssize_t		last_size;
 	char		*current_buf;
 
+	*error = GNL_NO_ERROR;
 	if (fd < 0)
-		return (0);
+		return (return_error(error, GNL_FD_ERROR));
 	current_buf = ft_strldup(last_read[fd], ft_strlen(last_read[fd]));
 	if (current_buf == 0)
-		return (0);
+		return (return_error(error, GNL_MALLOC_ERROR));
 	last_size = BUFFER_SIZE;
 	while (ft_i_strchr(last_read[fd], '\n') == -1 && last_size == BUFFER_SIZE)
 	{
@@ -73,11 +74,11 @@ char	*get_next_line(int fd)
 		if (last_size == -1)
 		{
 			free(current_buf);
-			return (0);
+			return (return_error(error, GNL_READ_ERROR));
 		}
 		current_buf = ft_stradd(current_buf, last_read[fd]);
 		if (current_buf == 0)
-			return (0);
+			return (return_error(error, GNL_MALLOC_ERROR));
 	}
-	return (handle_return(current_buf, last_read[fd]));
+	return (handle_return(current_buf, last_read[fd], error));
 }

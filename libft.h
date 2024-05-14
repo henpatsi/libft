@@ -21,6 +21,14 @@
 #  define BUFFER_SIZE 10
 # endif
 
+typedef enum gnl_error
+{
+	GNL_NO_ERROR,
+	GNL_FD_ERROR,
+	GNL_READ_ERROR,
+	GNL_MALLOC_ERROR
+}	t_gnl_error;
+
 typedef struct s_list
 {
 	void			*content;
@@ -263,9 +271,20 @@ int		ft_add_check_error(int value, int temp);
 
 //--- GET_NEXT_LINE FUNCTIONS ---//
 
-char	*get_next_line(int fd);
+/**
+ * Gets the next line (up to newline or EOF) from the file descriptor.
+ * 
+ * @param[in] fd The file descriptor
+ * @param[in] error Pointer in which to store the error code
+ * @returns A copy of the line or 0 on error or EOF reached.
+ * Error code is set as t_gnl_error:
+ * GNL_NO_ERROR (0), GNL_FD_ERROR (1),
+ * GNL_READ_ERROR (2), or GNL_MALLOC_ERROR (3)
+ */
+char	*get_next_line(int fd, int *error);
 ssize_t	ft_i_strchr(const char *s, int c);
 char	*ft_strldup(const char *s1, size_t len);
 char	*ft_stradd(char *s1, char *s2);
+char	*return_error(int *error, t_gnl_error errno);
 
 #endif
